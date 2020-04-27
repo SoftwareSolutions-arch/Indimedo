@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Electronics</ion-title>
+        <ion-buttons end>
+            <button ion-button tappable (click)="gotoCategory()">
+              <ion-icon name="cart"></ion-icon>
+            </button>
+          </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+    <ion-list class="user-list" style="margin: -4px 0 2px 0px;">
+     
+        
+        <button  ion-item  class="text-1x" *ngFor="let electricCategory of electricCategoryMenuItems" 
+        (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}" style="width: 100%;">
+          <span ion-text color="primary"  style="width: 80%;">{{electricCategory.title}}</span>
+          <ion-col col-2 *ngIf="sublevel" style="line-height: 2.5;    left: 67%;">
+            <ion-icon color="success" style="margin-top: 0px;font-size: 2rem;" item-right [name]="isGroupShown(i) ? 'ios-add-circle-outline' : 'ios-add-circle'"></ion-icon>
+        </ion-col>
+          
+        </button>
+        <ion-row *ngIf="isGroupShown(i)">
+            <ion-list class="user-list" style="margin: 0px 0px 6px 37px;">
+              <button  menuClose ion-item  class="text-1x" *ngFor="let electricsub of electricsubItems" (click)="openPage(electricsub)">
+          <span ion-text color="primary">{{electricsub.title}}</span>
+              </button>
+            </ion-list>
+          </ion-row>
+          <button ion-item menuClose class="text-1x" *ngFor="let electricItemBase of electricCategoryBaseMenuItems" (click)="openPage(electricItemBase)">
+            <span ion-text color="primary">{{electricItemBase.title}}</span>
+          </button>
+      </ion-list>
+
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header>
+        <ion-navbar color="primary">
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title>Women</ion-title>
+            <ion-buttons end>
+                <button ion-button tappable (click)="gotoCategory()">
+                  <ion-icon name="cart"></ion-icon>
+                </button>
+              </ion-buttons>
+        </ion-navbar>
+    
+    </ion-header>
+    
+    <!-- <ion-content padding class="common-bg">
+        <ion-list class="user-list" style="margin: -4px 0 2px 0px;">
+         
+            
+            <button  ion-item  class="text-1x" *ngFor="let womenCategory of womenCategoryMenuItems" 
+            (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}" style="width: 100%;">
+              <span ion-text color="primary"  style="width: 80%;">{{womenCategory.title}}</span>
+              <ion-col col-2 *ngIf="sublevel" style="line-height: 2.5;    left: 75%;">
+                <ion-icon color="success" style="margin-top: 0px;font-size: 2rem;" item-right [name]="isGroupShown(i) ? 'ios-add-circle-outline' : 'ios-add-circle'"></ion-icon>
+            </ion-col>
+              
+            </button>
+            <ion-row *ngIf="isGroupShown(i)">
+                <ion-list class="user-list" style="margin: 0px 0px 6px 37px;">
+                  <button  menuClose ion-item  class="text-1x" *ngFor="let womensub of womensubItems" (click)="openPage(womensub)">
+              <span ion-text color="primary">{{womensub.title}}</span>
+                  </button>
+                </ion-list>
+              </ion-row>
+              <button ion-item menuClose class="text-1x" *ngFor="let menuItemBase of womenCategoryBaseMenuItems" (click)="openPage(menuItemBase)">
+                <span ion-text color="primary">{{menuItemBase.title}}</span>
+              </button>
+          </ion-list>
+    
+    </ion-content>
+     -->
+     <ion-content>
+      <ion-list >
+        <ion-item *ngFor="let womencategory of womenCategoryMenuItems; let i=index" text-wrap (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
+         <ion-row>
+           <ion-col>
+            <h3 style="    width: 90%;">
+              {{womencategory.name}}
+             
+                 
+          </h3>
+           </ion-col>
+           <ion-col style="    text-align: end;">
+            <ion-icon color="success"  [name]="isLevel1Shown('idx'+i) ? 'ios-add-circle-outline' : 'ios-add-circle'"></ion-icon>
+      
+           </ion-col>
+         </ion-row>
+          
+          <ion-list *ngIf="isLevel1Shown('idx'+i)" style="    margin: -9px 0px -16px 3px;">
+            <ion-item *ngFor="let submenu of womencategory.children_data; let i2=index" text-wrap (click)="toggleLevel2('idx'+i+'idx'+i2)" [ngClass]="{active: isLevel2Shown('idx'+i+'idx'+i2)}">
+              <h4>
+                {{submenu.name}}
+               
+              </h4>
+              
+            </ion-item>
+          </ion-list>
+        </ion-item>
+      </ion-list>
+    </ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar color="primary">  
+      <ion-title>
+        <img src="assets/img/logo.png" style="width: 80%;">
+      </ion-title>
+        <ion-buttons end>
+            <button ion-button tappable (click)="gotoCategory()">
+              <ion-icon name="cart"></ion-icon>
+            </button>
+          </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="common-bg">
+     <ion-row (click)="takePicture()">
+        <ion-col col-12 class="flexcontainer">
+            <img src="assets/img/thank-you.png" style="margin: auto;
+      width: 100%;
+      padding: 10px;">
+      </ion-col>
+       <ion-col col-12>
+          <span style="text-align: center;">Thank you for visiting on IndiMedo.com.please contact to <strong>09993787332</strong> for donation</span>
+       </ion-col>  
+    </ion-row>
+</ion-content>

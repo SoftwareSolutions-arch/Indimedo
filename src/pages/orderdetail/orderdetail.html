@@ -1,0 +1,276 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Order Summary</ion-title>
+       
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+    <ion-grid>
+        <ion-card>
+            <ion-row>
+
+                
+                <ion-col col-sm>
+                    <div style="    margin: 14px 0 0 0;">
+                        <p><strong>
+                              Shakshi Tyagi
+                           
+                        </strong>
+                        </p>
+                        <p>shahdar delhi</p>
+                        <p>7838673478</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col no-padding class="column">
+                  <button ion-button icon-left small full color="light"  (click)="addDetail()">
+                    <ion-icon name="paper-plane"></ion-icon>
+                Change or Add Address
+                  </button>
+                </ion-col>
+              </ion-row>
+        </ion-card>
+        <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+        <ion-card>
+            <ion-row>
+
+                
+                <ion-col col-sm>
+                    <div style="    margin: 14px 0 0 0;">
+                        <p><strong>
+                                Men's Check Shirt New Style Fashion
+                           
+                        </strong>
+                        </p>
+                        <p>Seller: DarzFashion</p>
+                        <p>
+                                <strong>
+                                    
+                                    &#8377; 1500
+                                </strong>  
+                        </p>
+                    </div>
+                </ion-col>
+                <ion-col col-sm>
+
+                        <img src="assets/img/shirt1.jpg" />
+    
+                    </ion-col>
+                <ion-col col-sm>
+                    <div style="    margin: 14px 0 0 32px;">
+                        
+                        <ion-item>
+
+                            <button class="button button-icon icon ion-navicon-round" (click)="incrementQty()">
+                                <ion-icon name="add"></ion-icon>
+                            </button>
+
+
+                            <p style="font-size: 27px;
+                                    margin: 16px 0 0 0;
+                                    color: #f94cb1;">{{qty}}</p>
+
+                            <button class="button button-icon icon ion-navicon-round" (click)="decrementQty()">
+                                <ion-icon name="remove"></ion-icon>
+                            </button>
+                        </ion-item>
+                        <p>
+                                <button ion-button tappable (click)="removecart()">
+                                    <ion-icon name="trash"></ion-icon>
+                                </button>
+                            </p>
+
+                    </div>
+                </ion-col>
+               
+            </ion-row>
+        </ion-card>
+        <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+        <ion-card>
+                <ion-row>
+    
+                    
+                    <ion-col col-sm>
+                        <div style="    margin: 14px 0 0 0;">
+                            <p><strong>
+                                    Men's1 Check Shirt New Style Fashion
+                               
+                            </strong>
+                            </p>
+                            <p>Seller: DarzFashion</p>
+                            <p>
+                                    <strong>
+                                        
+                                        &#8377; 1500
+                                    </strong>  
+                            </p>
+                        </div>
+                    </ion-col>
+                    <ion-col col-sm>
+    
+                            <img src="assets/img/shirt1.jpg" />
+        
+                        </ion-col>
+                    <ion-col col-sm>
+                        <div style="    margin: 14px 0 0 32px;">
+                            
+                            <ion-item>
+    
+                                <button class="button button-icon icon ion-navicon-round" (click)="incrementQty()">
+                                    <ion-icon name="add"></ion-icon>
+                                </button>
+    
+    
+                                <p style="font-size: 27px;
+                                        margin: 16px 0 0 0;
+                                        color: #f94cb1;">{{qty}}</p>
+    
+                                <button class="button button-icon icon ion-navicon-round" (click)="decrementQty()">
+                                    <ion-icon name="remove"></ion-icon>
+                                </button>
+                            </ion-item>
+                            <p>
+                                    <button ion-button tappable (click)="removecart()">
+                                        <ion-icon name="trash"></ion-icon>
+                                    </button>
+                                </p>
+    
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+            <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+        
+                    <ion-row>
+                            <table style="width:100%;border-collapse: collapse;"  cellpadding="5">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Price Details</p>
+                                                </div>
+                                            </td>
+                <td>
+            
+                </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Total MRP</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="    text-align: end;">
+                                                    <p> &#8377; 2500</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Discount</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="    text-align: end;">
+                                                    <p>&#8377; 500</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Tax</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="    text-align: end;">
+                                                    <p>&#8377; 300</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Coupon Discount</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="    text-align: end;">
+                                                    <p>- &#8377; 500</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <p>Delivery Charges</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="    text-align: end;">
+                                                    <p> &#8377; 100</p>
+                                                </div>
+                                            </td>
+                                        
+                                        </tr>
+                                     
+                                    </tbody>
+                                </table>
+                                  <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+                           
+                                  
+                                        <table style="width:100%">
+                                          <tbody>
+                                              <tr>
+                                                  <td>
+                                                        <div>
+                                                                <p>Total</p>
+                                                            </div>
+                                                  </td>
+                                                  <td>
+                                                        <div style="    text-align: end;">
+                                                                <p>&#8377; 1900</p>
+                                                            </div>
+                                                    </td>
+                                              </tr>
+                                            
+                                          </tbody>
+                                      </table>
+                                     
+                                 
+                                  <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+                                  <ion-card>
+                                        <ion-row>
+                                          <ion-col no-padding class="column">
+                                            <button ion-button icon-left small full color="light"  (click)="checkout()">
+                                              <ion-icon name="paper-plane"></ion-icon>
+                                          Continue
+                                            </button>
+                                          </ion-col>
+                                        </ion-row>
+                                      </ion-card>
+                    </ion-row>
+            
+    </ion-grid>
+    
+ 
+
+
+</ion-content>

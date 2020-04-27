@@ -1,0 +1,99 @@
+page-donot-have-prescription {
+    .lg-head{
+        color: #ff7300 !important;
+    }
+
+    .span {
+        color: #868686 !important;
+        font-weight: 600;
+    }
+
+    .hr {
+        width: 125px;
+        height: 2px;
+        background-color: #00b6c1 !important;
+        border: 0;
+        margin: 7px 0 15px 0;
+    }
+    .container {
+        background-color: #f6f6f6 !important; 
+    }
+
+    .scroll-content {
+        background-color: #f6f6f6 !important;
+    }
+
+    .card-signin .card-title {
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: #ff7300;
+        margin-bottom: 5px;
+    }
+
+    .card-signin .card-body {
+        padding: 2rem;
+        box-shadow: 0 0px 8px rgba(153, 153, 153, 0.1);
+    }
+
+    .card-body {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1.25rem;
+    }
+
+    // .h6 {
+    //     color: black !important;
+    // }
+
+    p {
+        color: black;
+    }
+
+    .list-inline {
+        padding-left: 0;
+        display: inline-flex;
+        list-style: none;
+    }
+    
+    .fa-search-plus:before {
+        margin: 10px;
+    }
+
+    .fa-user-md:before {
+     
+        margin: 10px;
+    }
+
+    .fa-bus:before {
+       
+        margin: 10px;
+    }
+
+    .fa-location-arrow:before {
+        margin: 10px;
+    }
+
+    .fa-phone-alt:before {
+        margin: 10px;
+    }
+
+    .fa-envelope-open:before {
+        margin: 10px;
+    }
+    .datagram{
+        color: #ffffff !important;
+        font-size: 16px !important;
+        margin-right: 6px !important;
+        background: #00b6c1;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    p {
+        color: black;
+        display: inherit;
+    }
+}

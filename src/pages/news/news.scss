@@ -1,0 +1,105 @@
+page-news {
+    .intro-page {
+        padding: 40px 0;
+        position: relative;
+        background-position: center !important;
+        background-repeat: no-repeat!important;
+        background-attachment: scroll!important;
+        background-size: cover!important;
+    }
+    article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block;
+    }
+
+    .breadcrumb {
+        background: transparent;
+        padding: 0px;
+        margin-bottom: 5px;
+    }
+    .breadcrumb {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: .75rem 1rem;
+        margin-bottom: 1rem;
+        list-style: none;
+        // background-color: #e9ecef;
+        border-radius: .25rem;
+    }
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .intro-page .breadcrumb li a {
+        font-size: 14px;
+        color: #ffffff;
+        transition: 0.3s;
+    }
+    .breadcrumb li a {
+        font-size: 13px;
+        color: #585858;
+    }
+    a {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .intro-page .breadcrumb-item.active {
+        font-size: 14px;
+    }
+    .breadcrumb-item.active {
+        color: #01a6b0 !important;
+        font-size: 13px !important;
+    }
+    .breadcrumb-item.active {
+        color: #6c757d;
+    }
+    .breadcrumb-item+.breadcrumb-item {
+        padding-left: .5rem;
+    }
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    intro-page .breadcrumb-item+.breadcrumb-item::before {
+        display: inline-block;
+        padding-right: .5rem;
+        color: #fff;
+        content: "/";
+    }
+
+    
+ion-app.md [padding] .scroll-content {
+    padding: 0px !important;
+  }
+  
+  ion-app.md [padding] .scroll-content {
+    padding: 0px !important;
+  }
+  
+  .scroll-content {
+    padding: 0px !important;
+  }
+  
+  
+  .mycontent {
+    padding: 16px;
+  }
+  
+  
+  footer.footer.py-3.py-md-5.myfooter {
+    padding: 20px 15px 15px !important;
+  }
+  ul.list {
+    padding: 0;
+  }
+
+  footer.footer.py-3.py-md-5.myfooter {
+    margin-top: 40px;
+}
+}

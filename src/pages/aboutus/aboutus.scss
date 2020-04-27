@@ -1,0 +1,71 @@
+page-aboutus {
+    pb-3, .py-3 {
+        padding-bottom: 1rem!important;
+    }
+    .pt-3, .py-3 {
+        padding-top: 1rem!important;
+    }
+    .container.about.py-3.py-md-5 {
+        color: black;
+    }
+
+    .text-center {
+        text-align: center!important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
+
+    .about p {
+        font-size: 12px;
+        line-height: 21px;
+    }
+    .about p {
+        font-size: 13px;
+        line-height: 20px;
+        color: #000;
+        text-align: justify;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    
+ion-app.md [padding] .scroll-content {
+    padding: 0px !important;
+  }
+  
+  ion-app.md [padding] .scroll-content {
+    padding: 0px !important;
+  }
+
+  .carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    display: block;
+}
+.carousel-item {
+    min-height: 190px;
+}
+.carousel-item {
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: -webkit-transform .6s ease-in-out;
+    transition: transform .6s ease-in-out;
+    transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
+}
+}

@@ -1,0 +1,308 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cart</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-grid class="datagram">
+    <ion-card>
+      <ion-row>
+        <ion-col col-sm>
+          <div style="margin: 14px 0 0 0;" *ngFor="let items of ALlOrder">
+            <p><strong>
+                ItemsName:</strong>
+              {{items.name}}
+            </p>
+            <!-- <p>Seller: DarzFashion</p> -->
+            <p>
+              <strong>
+                &#8377; {{items.price}}
+              </strong>
+            </p>
+            <ion-col col-sm>
+              <img src={{items.image}} />
+            </ion-col>
+          </div>
+        </ion-col>
+
+        <ion-col col-sm>
+          <div style="margin: 14px 0 0 32px;">
+            <ion-item>
+              <button class="button button-icon icon ion-navicon-round" (click)="incrementQty()">
+                <ion-icon name="add"></ion-icon>
+              </button>
+              <p style="font-size: 27px;margin: 16px 0 0 0;color: #3bb0ea;">{{qty}}</p>
+
+              <button class="button button-icon icon ion-navicon-round" (click)="decrementQty()">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+            </ion-item>
+            <p>
+              <button ion-button tappable (click)="removecart()">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </p>
+
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-card>
+    <hr style="border: 1px solid #0e0e0e;    width: 100%;">
+    <ion-row>
+      <table style="width:100%;border-collapse: collapse;" cellpadding="5" *ngFor="let items of ALlOrder">
+        <tbody>
+          <tr>
+            <td>
+              <div>
+                <p>Price Details</p>
+              </div>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <p>Total MRP</p>
+              </div>
+            </td>
+            <td>
+              <div style="    text-align: end;">
+                <p> &#8377; {{items.price}}</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <p>Discount</p>
+              </div>
+            </td>
+            <td>
+              <div style="    text-align: end;">
+                <p>&#8377; {{items.discounted_price}}</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <p>Tax</p>
+              </div>
+            </td>
+            <td>
+              <div style="    text-align: end;">
+                <p>&#8377; 300</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <p>Coupon Discount</p>
+              </div>
+            </td>
+            <td>
+              <div style="    text-align: end;">
+                <p>- &#8377; 500</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <p>Delivery Charges</p>
+              </div>
+            </td>
+            <td>
+              <div style="    text-align: end;">
+                <p> &#8377; 100</p>
+              </div>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+      <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+
+
+      <table style="width:100%">
+        <tbody>
+          <tr>
+            <td>
+              <div>
+                <p>Total</p>
+              </div>
+            </td>
+            <td>
+              <div style="    text-align: end;">
+                <p>&#8377; 1900</p>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+      <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+      <ion-card>
+        <ion-row>
+          <ion-col no-padding class="column">
+            <button ion-button icon-left small full color="light" (click)="checkout()">
+              <ion-icon name="paper-plane"></ion-icon>
+              Place Order
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <section class="greybg my-cart pt-2 pt-md-4 pb-3 pb-md-5">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">		<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="https://www.indimedo.com">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Cart</li>
+    </ol>
+    </nav>
+    <h1 class="main-head">My cart</h1></div>
+    </div>
+    <div class="row">
+    <main class="col-sm-8">
+    <form method="POST" id="myform" action="https://www.indimedo.com/cart/cartupdate" enctype="multipart/form-data">
+    
+    <div class="card">
+    
+      <input type="hidden" name="_token" value="Ye0lflXFzxhVdJOuSApTA315sXWZfCW3fWBj15I7">
+    
+      <input type="hidden" name="_method" value="PUT">
+    <div class="mytr">
+    <table class="table table-hover shopping-cart-wrap table-responsive">
+    <thead class="text-muted">
+    <tr>
+    <th scope="col">Product</th>
+    <th scope="col" width="180">Quantity</th>
+    <th scope="col" width="120">Price</th>
+    <th scope="col" class="text-right" width="100">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+    <td>
+    <figure class="media align-items-center mb-0">
+    <div class="img-wrap h-100 d-flex">
+      <img src="https://www.indimedo.com/public/product/38.jpg" class="img-fluid mx-auto my-auto"></div>
+    <figcaption class="media-body">
+    <h6 class="title mb-0">
+      <!-- $cart['id'] -->
+        ADEL 21 Proscenat Drops 20Ml For Urinary Problems
+     </h6>
+    </figcaption>
+    </figure> 
+    </td>
+    <td> 
+            
+    <input type="number" min="1" name="qt[]" value="1">
+    <input type="hidden" name="cartid[]" value="38">
+    <a plusdata="38" class="btn btn-secondary plusbtn" role="button" aria-pressed="true"><i class="fa fa-plus-square"></i></a>
+    </td>
+    <td> 
+    <div class="price-wrap"> 
+    <var class="price">₹200.00</var> 
+    <small class="text-muted">(₹200.00 each)</small> 
+    
+    </div> <!-- price-wrap .// -->
+    </td>
+    <td class="text-right"> 
+    <a mydata="38" class="btn btn-outline-danger"> <i class="fas fa-trash-alt"></i></a>
+    </td>
+    </tr>
+          
+    </tbody>
+    </table>
+    </div>
+    </div> <!-- card.// -->
+    <div class="bottom-btn text-right mt-2 mt-md-2 mb-3 mb-md-0">
+      <button class="btn btn-secondary " role="button" aria-pressed="true">Update cart</button>
+    <div class="row mt-1 mt-md-1">
+    <div class="col-md-8">
+      </div>
+    <div class="col-md-4">
+    <div class="alert alert-danger text-center" style="display:none" role="alert">
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    </form>
+    </main> <!-- col.// -->
+    <aside class="col-sm-4 cart-total">
+    
+    <div class="your-order-area">
+    <h3>Cart Total</h3>
+    <div class="your-order-wrap gray-bg-4">
+    <div class="your-order-info-wrap">
+    <p class="alert alert-success">Order ₹500 or above shipping is free. </p>
+    
+    <div class="your-order-info order-subtotal">
+    <ul>
+    <li>Total Price <span class="tp">₹ 200.00 </span></li>
+    </ul>
+    </div>
+    <!-- <div class="your-order-info order-subtotal">
+    <ul>
+    <li>Discount <span>₹382 </span></li>
+    </ul>
+    </div> -->
+    
+    <div class="your-order-info order-subtotal">
+    <ul>
+    <li>Shipping <span class="ship">₹50 </span></li>
+    </ul>
+    </div>
+    <div class="your-order-info order-subtotal">
+    <ul>
+      <li>Apply Coupon <span><input type="text" size="10" name="coupontxt" id="coupontxt"><button name="btncoupon" id="btncoupon">Apply</button></span></li>
+      </ul>
+    <div class="alert alert-success alertdiv" style="display:none">
+    </div>
+    </div>
+    <div class="your-order-info order-total">
+    <ul>
+    <li>Total ₹ <span class="finaltotal">250.00</span></li>
+    </ul>
+    </div>
+    </div>
+    
+    </div>
+    <div class="Place-order mt-40">
+      <a class="btn btn-secondary" href="https://www.indimedo.com/cart/checkout"> Proceed to Checkout  </a>
+    </div>
+    </div>
+    
+    
+    
+      </aside> <!-- col.// -->
+    </div>
+    </div>
+    </section>
+</ion-content>

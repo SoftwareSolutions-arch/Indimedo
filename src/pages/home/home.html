@@ -1,0 +1,606 @@
+<ion-header >
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/img/logo.png" style="width: 80%;">
+    </ion-title>
+    <ion-buttons (click)="openCarts()" end>
+      <div class="row mainhead">
+        <span class="cart_icn"><ion-icon  name="cart"></ion-icon></span>
+        <span class="count">{{this.cartcount}}</span>
+        <span class="total-price">₹ {{this.cartamount}}</span>
+      </div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<style>
+  .card {
+    border-radius: 0rem !important;
+  }
+</style>
+
+<div *ngIf="shopping">
+  <div class="dropdown-menu show">
+    <div *ngIf="this.getallcartItems.length != 0">
+      <ion-item *ngFor="let allItems of this.getallcartItems">
+        <div class="card-image mr-2 mr-md-1 text-center">
+          <img class="img-fluid mx-auto my-auto " src={{allItems.image}}>
+        </div>
+        <div class="media-body">
+          <a href="" class="abc">{{allItems.name}}</a>
+          <ul>
+            <li>
+              <p> Quantity <span> {{allItems.qty}} </span></p>
+            </li>
+            <li>
+              <p>Price <span>{{allItems.discounted_price}}</span></p>
+            </li>
+          </ul>
+        </div>
+        <div class="text-cen">
+          <a id="38" class="btn btn-outline-danger ml-2 delcart" (click)="deleteactivity(allItems)"> <i
+              class="fas fa-trash-alt"></i></a>
+        </div>
+      </ion-item> 
+    </div>
+    <br>
+    <button *ngIf="this.getallcartItems.length != 0" type="button" class="mybtn btn-secondary proceed"
+      (click)="checkout()">Process to checkout</button>
+  </div>
+
+  <div *ngIf="this.getallcartItems.length == 0" class="dropdown-menu show nopro ">
+    No products in the cart.
+  </div>
+</div>
+<ion-content padding class="animated fadeIn common-bg">
+  <div class="mycontent" (click)="mybutton()">
+
+    <ion-card no-margin margin-bottom class="full-width">
+      <ion-slides autoplay="1000" loop="true" speed="400" *ngIf="topbanner && topbanner.length">
+        <ion-slide *ngFor="let slide of topbanner">
+          <!-- <a [href]="slide.href"> -->
+            <a>
+
+            <h1><img src="{{slide.image}}" style="box-sizing: border-box;width: 100%;height: 190px;"></h1>
+            <p style="background-color: #949494">{{slide.banner_txt}}</p>
+          </a>
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
+
+    <!-- FOR UPLOAD AND PRESCRIBE-->
+    <ion-card no-margin margin-bottom class="full-width">
+      <ion-row no-padding class="category-banner">
+        <ion-col text-center align-self-center>
+          <h2><strong>Online Pharmacy</strong></h2>
+          <hr style="width: 123px;
+        color: #eaebdb;
+        background: #ff7300;
+        margin: 0px 0px 0px 97px;
+        padding: 0;
+        z-index: 999;
+        position: relative;
+        border-radius: 68px;
+        height: 1px;
+        border: 0;" />
+
+        </ion-col>
+      </ion-row>
+      <div>
+        <div>
+          <div>
+            <img src="assets/img/upload.png" style="margin: auto;
+      width: 20%;
+      padding: 10px;">
+          </div>
+          <p style="font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      color: #656565;
+      padding: 11px;
+      text-align: center;">Have a Prescription?</p>
+          <br />
+          <div class="text-center">
+            <a (click)="UploadPrescription()" class="btn btn-primary">Upload Prescription</a>
+          </div>
+        </div>
+      </div>
+      <br />
+      <hr style="width: 100%;
+color: #eaebdb;
+background: #ff7300;
+margin: 0px 0px 0px 0px;
+padding: 0;
+z-index: 999;
+position: relative;
+border-radius: 68px;
+height: 1px;
+border: 0;" />
+      <div>
+        <div>
+          <div>
+            <img src="assets/img/share.png" style="margin: auto;
+  width: 20%;
+  padding: 10px;">
+          </div>
+          <p style="font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #656565;
+  padding: 11px;
+  text-align: center;">Don't have Prescription</p>
+          <br />
+          <div class="text-center">
+            <a (click)="DonthavePrescription()"
+              class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medicine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          </div>
+        </div>
+      </div>
+      <br />
+    </ion-card>
+    <br />
+    <section class="work pb-3 pb-md-5">
+      <div class="container">
+        <h5 class="mb-0 hmphead">How it work?</h5>
+        <hr class="red mx-auto">
+        <div class="row mt-3 mt-md-4">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="card h-100">
+              <div class="number">01</div>
+              <div class="d-block">
+                <img src="https://indimedo.com/public/assets/img/notepad.png">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a>Upload Valid Prescription</a>
+                </h4>
+                <p class="card-text">Upload the prescription suggested by your doctor. </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="card h-100">
+              <div class="number">02</div>
+              <div class="d-block">
+                <img src="https://indimedo.com/public/assets/img/reccall.png">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Receive a confirmation call </a>
+                </h4>
+                <p class="card-text">You will get a call back from our representative for the confirmation of those
+                  medicines. </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <div class="card h-100">
+              <div class="number">03</div>
+              <div class="d-block">
+                <img src="https://indimedo.com/public/assets/img/truck.png">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Delivery at your door step</a>
+                </h4>
+                <p class="card-text">We will deliver the prescribed medicines to your door step. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR MIDDLE BANNER -->
+    <ion-card no-margin margin-bottom class="full-width">
+      <ion-slides *ngIf="bannermiddle && bannermiddle.length" #slides>
+        <ion-slide *ngFor="let slide of bannermiddle">
+          <h1><img src="{{slide.banner_img}}" style="margin: auto;width: 242px;"></h1>
+          <button type="submit" ion-button class="swiper-button-prev swiper-button-black"
+            (click)="prevSlide()"></button>
+          <button type="submit" ion-button class="swiper-button-next swiper-button-black"
+            (click)="nextSlide()"></button>
+
+        </ion-slide>
+
+      </ion-slides>
+      <br />
+    </ion-card>
+    <br />
+
+    <!-- FOR FEATURE PRODUCT -->
+    <ion-card no-margin margin-bottom class="full-width" #slides1>
+      <ion-row no-padding class="category-banner">
+        <ion-col text-left align-self-center>
+          <h2><strong>Featured Brands</strong></h2>
+          <hr style="width: 123px;
+        color: #eaebdb;
+        background: #ff7300;
+        margin: 0px 0px 0px 0px;
+        padding: 0;
+        z-index: 999;
+        position: relative;
+        border-radius: 68px;
+        height: 1px;
+        border: 0;" />
+        </ion-col>
+        <ion-col text-right align-self-center>
+          <button type="button" ion-button color="primary"
+            style="background-color: #ff7300;height:2.5rem;top:-7px;">View
+            All</button>
+        </ion-col>
+      </ion-row>
+      <ion-slides autoplay="1000" *ngIf="FeaturedBrands && FeaturedBrands.length">
+
+        <ion-slide *ngFor="let slide of FeaturedBrands">
+          <a [href]="slide.href">
+            <h1><img src="{{slide.image}}" style="margin: auto;
+          width: 200px;
+          height: 200px;padding: 10px;"></h1>
+            <p>{{slide.brand}}</p>
+            <br />
+            <div class="text-center">
+              <a href="{{slide.image}}" class="btn btn-primary">Shop Now</a>
+            </div>
+            <br />
+          </a>
+        </ion-slide>
+        <br />
+      </ion-slides>
+      <br />
+    </ion-card>
+    <br />
+    <!-- FOR Popular Health Products -->
+    <ion-card no-margin margin-bottom class="full-width">
+      <ion-row no-padding class="category-banner">
+        <ion-col text-left align-self-center>
+          <h2><strong>Popular Health Products</strong></h2>
+          <hr style="width: 123px;
+          color: #eaebdb;
+          background: #ff7300;
+          margin: 0px 0px 0px 0px;
+          padding: 0;
+          z-index: 999;
+          position: relative;
+          border-radius: 68px;
+          height: 1px;
+          border: 0;" />
+        </ion-col>
+        <ion-col text-right align-self-center>
+          <button type="button" ion-button color="primary"
+            style="background-color: #ff7300;height:2.5rem;top:-7px;">View
+            All</button>
+        </ion-col>
+      </ion-row>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 *ngFor="let slide of PopularHealthProducts">
+            <a>
+              <ion-card-content style="    padding: 0px 0px 0px 0px;    border: 2px groove #afacac;
+                                    border-radius: 1%;">
+                <img src="{{slide.image}}" style="    width: 77%;
+                                        margin: auto;    height: 128px;">
+                <br />
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <p style="color: black;
+                                                      margin-top: -6px;
+                                                      font-size: 12px;
+                                                      font-family: 'Poppins', sans-serif;
+                                                      padding-left: 9px;    word-break: break-all;">
+                            <strong>
+
+                              {{slide.name}}
+                            </strong>
+                          </p>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                          <!-- <button ion-button  block (click)="addWishlist()" style="height: 2rem;background-color: white;
+                                                      color: red;
+                                                      font-size: 1.8rem;
+                                                      box-shadow: none;">
+                                                        <ion-icon name="heart"></ion-icon>
+                                                      </button>  -->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p style="    color: #696666;
+                                                      margin-top: -1px;
+                                                      text-decoration: line-through;
+                                                      padding-left: 7px;">
+
+
+                            {{slide.regular_price}}
+
+                          </p>
+                        </td>
+                        <td>
+                          <p style="color: black;
+                                                    margin-top: 0px;
+                                                    width: 45px;
+                                                    font-family: 'Poppins', sans-serif;
+                                                    padding-right: 7px;">
+                            <strong style="margin-left: -20px;">
+
+                              {{slide.new_price}}
+                            </strong>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p style="color:green;margin-top: -9px;padding-left:7px;">
+                            <strong>
+                              {{slide.stock}}
+                            </strong>
+                          </p>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <br />
+                          <div class="text-center">
+                            <span class="btn btn-secondary" (click)="addTocarts(slide)">Add To Cart</span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br />
+                </div>
+              </ion-card-content>
+            </a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <br />
+
+    <!-- FOR Shop by Categories -->
+    <ion-card no-margin margin-bottom class="full-width">
+      <ion-row no-padding class="category-banner">
+        <ion-col text-left align-self-center>
+          <h2><strong>Shop by Categories</strong></h2>
+          <hr style="width: 123px;
+            color: #eaebdb;
+            background: #ff7300;
+            margin: 0px 0px 0px 0px;
+            padding: 0;
+            z-index: 999;
+            position: relative;
+            border-radius: 68px;
+            height: 1px;
+            border: 0;" />
+        </ion-col>
+        <ion-col text-right align-self-center>
+          <button type="button" ion-button color="primary"
+            style="background-color: #ff7300;height:2.5rem;top:-7px;">View
+            All</button>
+        </ion-col>
+      </ion-row>
+      <div *ngIf="ShopbyCategories && ShopbyCategories.length">
+        <ion-card no-margin margin-bottom class="full-width" *ngFor="let slide of ShopbyCategories">
+          <a [href]="slide.href">
+            <h1><img src="{{slide.image}}"
+                style="margin: auto;width: 100%;padding: 10px;height: 150px;margin-top: 3px;border: 1px solid #ff7300;">
+            </h1>
+            <br />
+            <p style="font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #656565;
+            padding: 11px;
+            text-align: center;">{{slide.cat_name}}</p>
+          </a>
+        </ion-card>
+      </div>
+
+      <br />
+    </ion-card>
+    <br />
+    <br />
+
+    <!-- FOR Shop by Health Concern -->
+    <ion-card no-margin margin-bottom class="full-width">
+      <ion-row no-padding class="category-banner">
+        <ion-col text-left align-self-center>
+          <h2><strong>Shop by Health Concern</strong></h2>
+          <hr style="width: 123px;
+           color: #eaebdb;
+           background: #ff7300;
+           margin: 0px 0px 0px 0px;
+           padding: 0;
+           z-index: 999;
+           position: relative;
+           border-radius: 68px;
+           height: 1px;
+           border: 0;" />
+        </ion-col>
+        <ion-col text-right align-self-center>
+          <button type="button" ion-button color="primary"
+            style="background-color: #ff7300;height:2.5rem;top:-7px;">View
+            All</button>
+        </ion-col>
+      </ion-row>
+      <br />
+      <ion-slides loop="true" *ngIf="ShopbyHealthConcern && ShopbyHealthConcern.length">
+        <ion-slide *ngFor="let slide of ShopbyHealthConcern">
+          <br />
+          <a [href]="slide.href">
+            <h1><img src="{{slide.image}}" style="margin: auto;
+        width: 122px;
+        height: 117px;"></h1>
+            <p style="color:black;text-align: center;"><strong>{{slide.cat_name}}</strong></p>
+          </a>
+        </ion-slide>
+      </ion-slides>
+
+      <br />
+    </ion-card>
+    <br />
+
+    <!-- FOR BEST OFFERS -->
+    <ion-card no-margin margin-bottom class="full-width">
+      <ion-row no-padding class="category-banner">
+        <ion-col text-left align-self-center>
+          <h2><strong>Amazing Offers</strong></h2>
+          <hr style="width: 123px;
+           color: #eaebdb;
+           background: #ff7300;
+           margin: 0px 0px 0px 0px;
+           padding: 0;
+           z-index: 999;
+           position: relative;
+           border-radius: 68px;
+           height: 1px;
+           border: 0;" />
+        </ion-col>
+      </ion-row>
+      <div *ngIf="AmazingOffers && AmazingOffers.length">
+        <ion-card no-margin margin-bottom class="full-width" *ngFor="let slide of AmazingOffers">
+          <h1><img src="{{slide.image}}"
+              style="margin: auto;width: 100%;padding: 10px;height: 267px;margin-top: 3px;border:4px solid #00b6c1;">
+          </h1>
+          <br />
+        </ion-card>
+      </div>
+    </ion-card>
+    <br />
+
+    <!-- <section class="testimonial text-center">
+    <div class="container">
+      <h5 class="hmphead mb-0"> What Our Clients Say</h5>
+      <hr class="red mx-auto">
+      <div id="testimonial4"
+        class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x"
+        data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item ">
+            <div class="testimonial4">
+              <img src="https://indimedo.com/public/review/Pooja_Panday.JPG" class="img-circle img-responsive">
+              <p></p>
+              <p>I found everything very convenient while shopping from Indimedo. We get a wide range of medicines and
+                non-prescription products available and things which help me more and provide me a one stop shop
+                platform are the exciting offers, medicine images, expiry date, prices. And post order the tracking part
+                is also very nice and transparent.</p>
+              <p></p>
+              <h4>Pooja Panday</h4>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial4">
+              <img src="https://indimedo.com/public/review/Usha_Singh.JPG" class="img-circle img-responsive">
+              <p></p>
+              <p>I am a regular purchaser of Medicines required for me and my family form indimedo i am satisfied with
+                their services</p>
+              <p></p>
+              <h4>Usha Singh</h4>
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <div class="testimonial4">
+              <img src="https://indimedo.com/public/review/Rajesh_Sarswat.JPG" class="img-circle img-responsive">
+              <p></p>
+              <p>I used more than a year, its very wonderful online pharmacy site. They gives lots of offers and
+                discounts. I used few other sites compare with those, Indimedo is very good site. Almost&nbsp; medicines
+                are available. Few times they may faced stock issue but most of the time they delivered on time.</p>
+              <p></p>
+              <h4>Rajesh Sarswat</h4>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+  </section> -->
+
+    <section class="testimonial text-center">
+      <div class="container">
+        <h5 class="hmphead mb-0"> What Our Clients Say</h5>
+        <hr class="red mx-auto">
+        <ion-card no-margin margin-bottom class="full-width">
+          <ion-slides autoplay="1000" loop="true" speed="400" *ngIf="topbanner && topbanner.length">
+            <ion-slide>
+              <img src="https://indimedo.com/public/review/Pooja_Panday.JPG" class="img-circle img-responsive">
+              <p></p>
+              <p>I found everything very convenient while shopping from Indimedo. We get a wide range of medicines and
+                non-prescription products available and things which help me more and provide me a one stop shop
+                platform are the exciting offers, medicine images, expiry date, prices. And post order the tracking part
+                is also very nice and transparent.</p>
+              <p></p>
+              <h4>Pooja Panday</h4>
+            </ion-slide>
+
+            <ion-slide>
+              <img src="https://indimedo.com/public/review/Usha_Singh.JPG" class="img-circle img-responsive">
+              <p></p>
+              <p>I am a regular purchaser of Medicines required for me and my family form indimedo i am satisfied with
+                their services</p>
+              <p></p>
+              <h4>Usha Singh</h4>
+            </ion-slide>
+            <ion-slide>
+              <img src="https://indimedo.com/public/review/Rajesh_Sarswat.JPG" class="img-circle img-responsive">
+              <p></p>
+              <p>I used more than a year, its very wonderful online pharmacy site. They gives lots of offers and
+                discounts. I used few other sites compare with those, Indimedo is very good site. Almost&nbsp; medicines
+                are available. Few times they may faced stock issue but most of the time they delivered on time.</p>
+              <p></p>
+              <h4>Rajesh Sarswat</h4>
+            </ion-slide>
+          </ion-slides>
+        </ion-card>
+      </div>
+    </section>
+
+    <div class="container about mb-3 mb-md-5 bul-point">
+      <h2>Indimedo.com # your own pharmacy</h2>
+      <p>We understand your concern for your and love one’s health, and after analyzing the practical difficulties we
+        are
+        here with the solution of all medical problems from precautionary to cure.</p>
+      <p>Forget about the critical and exhaustive medical services! Take Home to Hospital Medical Facilities at one
+        click!
+      </p>
+      <p>Indimedo.com is our step towards healthy India, here you get consultation from medical experts to take care of
+        your health on routine basis. Apart from it we deliver genuine medicines and wellness products to your door for
+        making your life hassle free.</p>
+      <p>Unfortunately, if any medical emergency occurs, being family of Indimedo.com we arrange a to z medical
+        facilities
+        of your treatment and helps you to get back into healthy life.</p>
+      <h3>Commitments &amp; Culture</h3>
+      <ul>
+        <li>Committed to society for their sound Heath because we believe health is wealth and what we believe, we
+          deliver.</li>
+        <li>Consistent to understand patient experience from every angle.</li>
+        <li>Working with co-ordination of national and international harmacists, hospitals,pathologies and doctors in
+          all
+          over India to fulfill the needs of our clients and achieve the goal of sound health of society.</li>
+      </ul>
+      <h3>Why choose Indimedo.com?</h3>
+      <ul>
+        <li>100% assurance of receiving genuine medicine.</li>
+        <li>Prompt actions and delivery within stipulated time frame.</li>
+        <li>Medical test at authenticated pathologies on basis of prescription.</li>
+        <li>24*7 consultation services.</li>
+        <li>Coverage of good hospitals for treatment in India and abroad.</li>
+        <li>Vide range of Discount, economical deals and offers every time.</li>
+        <li>Easy browsing, hassle free billing and payment.</li>
+        <li>Convenient tracking of order and change delivery options.</li>
+      </ul>
+    </div>
+  </div>
+  <page-footer></page-footer>
+</ion-content>

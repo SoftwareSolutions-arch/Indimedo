@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Orders</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="openCart()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-grid>
+    <ion-card *ngFor="let items of ALlOrder">
+      <ion-row>
+        <ion-col col-sm>
+          <div style="    margin: 14px 0 0 0;">
+            <p><strong>Order Id:</strong>
+              {{items.oid}}
+
+            </p>
+            <p><strong>Payment Status:</strong>{{items.paymentstatus}}</p>
+          </div>
+          <div style="    margin: 14px 0 0 0;">
+            <p><strong>Final Total:</strong>
+              {{items.final_total}}
+            </p>
+          </div>
+        </ion-col>
+        <ion-col col-sm>
+
+          &nbsp;
+
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+  </ion-grid>
+</ion-content>

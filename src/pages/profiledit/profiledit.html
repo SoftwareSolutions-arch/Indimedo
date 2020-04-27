@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Edit Your Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="gotoCart()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-card class="full-width" no-margin margin-bottom>
+    <ion-card-content no-padding>
+
+      <ion-item style="background-color: #3bb0ea">
+        <ion-avatar>
+          <img src="assets/img/profile.png" style="    width: 139px;
+              height: 150px;
+              object-fit: cover;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;">
+        </ion-avatar>
+
+        <button class="button button-icon icon ion-navicon-round" style="margin: -25px 0 0 0px;
+            float: right;" (click)="editprofile()">
+          <ion-icon name="open"></ion-icon>
+        </button>
+
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-label>First Name</ion-label>
+    <ion-input></ion-input>
+    <ion-label>Last Name</ion-label>
+    <ion-input type="text"></ion-input>
+
+
+
+    <ion-label>Email</ion-label>
+    <ion-input readonly type="email"></ion-input>
+
+
+    <ion-label>Phone</ion-label>
+    <ion-input type="tel" clearInput></ion-input>
+
+    <!-- <a href="#" style="text-decoration: none;">
+            <p style="
+
+            font-size: larger;">Change Password</p>
+          </a>
+
+        -->
+    <button ion-button block color="primary" (click)="placeOrder()">SUBMIT</button>
+  </ion-list>
+</ion-content>

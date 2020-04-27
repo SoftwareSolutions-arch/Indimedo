@@ -1,0 +1,107 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Addresses</ion-title>
+        <ion-buttons end>
+            <button ion-button tappable (click)="gotoCart()">
+              <ion-icon name="cart"></ion-icon>
+            </button>
+          </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+    <ion-grid>
+        <ion-card>
+            <ion-row>
+                <ion-col no-padding class="column">
+                  <button ion-button icon-left outline color="light"  (click)="addDetail()">
+                    <ion-icon name="add"></ion-icon>
+                Add a new address
+                  </button>
+                </ion-col>
+              </ion-row>
+        </ion-card>
+        <hr style="border: 1px solid #0e0e0e;    width: 100%;">
+        <ion-card>
+            <ion-row >
+                <ion-col col-sm>
+                    <div style="    margin: 14px 0 0 0;">
+                        <p><strong>
+                          <!-- <span>{{ALlOrder.fname}}</span> -->
+                        </strong>
+                        </p>
+                        <p>shahdar delhi</p>
+                        <p>7838673478</p>
+                    </div>
+                </ion-col>
+                <ion-col col-sm>
+                    <div style="    margin: 14px 0 0 32px;">
+
+                        <ion-item>
+
+                            <button class="button button-icon icon ion-navicon-round" (click)="addadress()">
+                                <ion-icon name="add"></ion-icon>
+                            </button>
+
+<br/>
+                            <button class="button button-icon icon ion-navicon-round" (click)="removeaddress()">
+                                <ion-icon name="remove"></ion-icon>
+                            </button>
+                        </ion-item>
+                        <p>
+                                <button ion-button tappable (click)="removecart()">
+                                    <ion-icon name="trash"></ion-icon>
+                                </button>
+                            </p>
+
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+        <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+        <ion-card>
+            <ion-row>
+
+                <ion-col col-sm>
+                    <div style="    margin: 14px 0 0 0;">
+                        <p><strong>
+                              Shakshi Tyagi
+
+                        </strong>
+                        </p>
+                        <p>shahdar delhi</p>
+                        <p>7838673478</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+        <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+        <ion-card>
+            <ion-row>
+
+                <ion-col col-sm>
+                    <div style="    margin: 14px 0 0 0;">
+                        <p><strong>
+                              Shakshi Tyagi
+
+                        </strong>
+                        </p>
+                        <p>shahdar delhi</p>
+                        <p>7838673478</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+
+
+
+    </ion-grid>
+
+
+
+
+</ion-content>

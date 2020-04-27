@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/img/logo.png" style="width: 80%;">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  class="mycart">
+  <section padding class="greybg my-cart pt-2 pt-md-4 pb-3 pb-md-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav aria-label="breadcrumb">
+            <div class="breadcrumb-item"><a href="https://www.indimedo.com">Home</a></div>
+            <div class="breadcrumb-item active" aria-current="page">Cart</div>
+          </nav>
+          <h1 class="main-head">My cart</h1>
+        </div>
+      </div>
+      <div class="row">
+        <main class="col-sm-12">
+            <div>
+            <div class="card">
+              <div class="mytr table-responsive">
+                <table class="table table-hover shopping-cart-wrap table-responsive" scrollX="true" style="width:95vw; height:100%">
+                  <thead class="text-muted">
+                    <tr>
+                      <th>Product</th>
+                      <th width="180">Quantity</th>
+                      <th width="120">Price</th>
+                      <th class="text-right" width="100">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let allItems of this.getallcartItems">
+                    <tr>
+                      <td>
+                        <figure class="media align-items-center mb-0">
+                          <div class="img-wrap h-100 d-flex">
+                            <img class="img-fluid mx-auto my-auto " src={{allItems.image}}>
+                          </div>
+                          <figcaption class="media-body">
+                            <h6 class="title mb-0">
+                              <!-- $cart['id'] -->
+                              {{allItems.name}}
+                            </h6>
+                          </figcaption>
+                        </figure>
+                      </td>
+                      <td>
+                        <a (click)="incrementQty(allItems)" class="btn btn-secondary plusbtn" role="button" aria-pressed="true"><i
+                        class="fa fa-plus-square"></i></a>
+                        <input type="number" [(ngModel)]="allItems.qty">
+                        <a (click)="decrementQty(allItems)" class="btn btn-secondary minusbtn" role="button" aria-pressed="true"><i
+                            class="fa fa-minus-square"></i></a>
+                      </td>
+                      <td>
+                        <div class="price-wrap">
+                          <var class="price">₹{{(allItems.discounted_price)*(allItems.qty)}}.00</var>
+                          <small class="text-muted">(₹{{allItems.discounted_price}}.00 each)</small>
+                        </div>
+                      </td>
+                      <td class="text-right">
+                        <a mydata="38" class="btn btn-outline-danger" (click)="deleteactivity(allItems)">
+                           <i class="fas fa-trash-alt"></i>
+                          </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             
+            </div> <!-- card.// -->
+             <div class="bottom-btn text-right mt-2 mt-md-2 mb-3 mb-md-0">
+              <button (click)="updateCart()" class="btn btn-secondary " role="button" aria-pressed="true">Update cart</button>
+              <div class="row mt-1 mt-md-1">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4">
+                  <div class="alert alert-danger text-center" style="display:none" role="alert">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main> <!-- col.// -->
+        <aside class="col-sm-12">
+          <div class="your-order-area">
+            <h3>Cart Total</h3>
+            <div class="your-order-wrap gray-bg-4">
+              <div class="your-order-info-wrap">
+                <p class="alert alert-success">Order ₹500 or above shipping is free. </p>
+
+                <div class="">
+                  <ul>
+                    Total Price <span class="tp">₹ {{this.cartamount}} </span>
+                  </ul>
+                </div>
+                <div class="">
+                  <ul>
+                    Shipping <span class="ship">{{this.cartamount>=500?'₹0':'₹50'}}</span>
+                  </ul>
+                </div>
+                <div class="">
+                  <ul>
+                    Apply Coupon <span><input type="text" size="10" name="coupontxt" id="coupontxt">
+                      <button class="btncoupon" name="btncoupon" id="btncoupon">Apply</button></span>
+                  </ul>
+                  <div class="alert alert-success alertdiv" style="display:none">
+                  </div>
+                </div>
+                <div class="your-order-info order-total">
+                  <ul>
+                    Total <span class="finaltotal">₹ {{this.cartamount + (this.cartamount>=500?0:50)}}</span>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <div class="Place-order mt-40">
+              <a class="btn btn-secondary mydata" (click)="Checkout()"> Proceed to Checkout
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <page-footer></page-footer>
+</ion-content>

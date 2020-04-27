@@ -1,0 +1,320 @@
+page-mycart {
+    .mycart {
+        background-color: #f6f6f6;
+    }
+
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .mytr {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .align-items-center {
+        -ms-flex-align: center !important;
+        align-items: center !important;
+    }
+
+    input {
+        padding: 0px;
+        margin: 0 !important;
+        // width: 19px;
+    }
+
+    .shopping-cart-wrap h6.title {
+        font-size: 13px;
+        font-weight: 400;
+        color: #252525;
+    }
+
+    th {
+        color: black;
+    }
+
+    h1 {
+        margin-top: 1rem;
+        font-size: 1.6rem;
+        color: black;
+    }
+
+    .text-right {
+        text-align: right !important;
+    }
+
+    footer .list .btn-secondary,
+    .my-cart .bottom-btn .btn-secondary,
+    .add-Comments .btn-secondary {
+        font-size: 12px;
+        padding: 0px 5px !important;
+    }
+
+    footer .list .btn-secondary,
+    .my-cart .bottom-btn .btn-secondary,
+    .add-Comments .btn-secondary,
+    .your-order-area .your-order-wrap .your-order-info.order-subtotal span #btncoupon,
+    .details .pincode-button,
+    footer .new-letter .Donate-Medi {
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+        background-color: #ff7300;
+        border-color: #ff7300;
+        border-radius: 3px;
+        padding: 5px 24px !important;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .btncoupon{
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+        background-color: #ff7300;
+        border-color: #ff7300;
+        border-radius: 3px;
+        padding: 5px 24px !important;
+        outline: none;
+        box-shadow: none;
+    }
+
+    button.btn.btn-secondary {
+        margin: 10px;
+    }
+
+    .cart-total .your-order-wrap .alert {
+        padding: .65rem 0.6rem;
+        margin-bottom: 3px;
+    }
+
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+
+    .alert {
+        position: relative;
+        padding: .75rem 1.25rem;
+        margin-bottom: 1rem;
+        margin: 10px !important;
+
+        border: 1px solid transparent;
+        border-radius: .25rem;
+    }
+
+    .your-order-area {
+        padding: 10px !important;
+        // padding: 15px 50px 20px;
+        background-color: white;
+    }
+
+    aside.col-sm-12 {
+        width: 100%;
+    }
+
+    h3 {
+        color: black;
+    }
+
+    ul {
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    li {
+        color: black;
+    }
+
+    .your-order-area h3:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        // bottom: -7px;
+        margin-left: 30px;
+        margin-top: 30px;
+        background-color: #ff7300;
+        width: 90px;
+        height: 2px;
+    }
+
+    your-order-area .your-order-wrap .your-order-info.order-subtotal {
+        padding: 9px 0 9px;
+    }
+
+    table.table.table-hover.shopping-cart-wrap.table-responsive {
+        padding: 10px;
+    }
+
+    .your-order-area .your-order-wrap .your-order-info {
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    ul {
+        color: black;
+    }
+
+
+    .shopping-cart-wrap td input,
+    .your-order-area .your-order-wrap .your-order-info.order-subtotal span input,
+    .details .pincode-code {
+        width: 54%;
+        height: calc(2rem + 2px);
+        font-weight: 400;
+        line-height: 1.5;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+        border: 1px solid rgba(0, 0, 0, .1) !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+        border-radius: 3px;
+    }
+
+    .your-order-area .your-order-wrap .your-order-info.order-subtotal span input {
+        box-shadow: none !important;
+        border-radius: 0px;
+    }
+
+    a.btn.btn-secondary.mydata {
+        background-color: #ff7300;
+        display: block;
+        cursor: pointer;
+        padding: 16px 50px 17px;
+        text-transform: uppercase;
+        font-weight: 700;
+        width: 100%;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        transition: 0.3s;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0px;
+    }
+
+    span.tp {
+        float: right;
+    }
+
+    span.ship {
+        float: right;
+    }
+
+    span.finaltotal {
+        float: right;
+    }
+
+    .col-sm-8 {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .shopping-cart-wrap thead th {
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .shopping-cart-wrap thead th {
+        font-weight: 500;
+        font-size: 14px;
+        color: #777;
+        text-transform: uppercase;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table td,
+    .table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    th {
+        text-align: inherit;
+    }
+
+    .shopping-cart-wrap h6.title {
+        line-height: 18px;
+    }
+
+    .shopping-cart-wrap h6.title {
+        font-size: 13px;
+        font-weight: 400;
+        color: #252525;
+        // word-break: break-all;
+    }
+
+    .mb-0,
+    .my-0 {
+        margin-bottom: 0 !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
+
+    .align-items-center {
+        -ms-flex-align: center !important;
+        align-items: center !important;
+    }
+
+    .table>tbody>tr>td,
+    .table>tfoot>tr>td {
+        vertical-align: middle;
+    }
+
+    .table td,
+    .table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .col-sm-8{
+        position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    }
+
+    i.fas.fa-trash-alt {
+        color: red;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #e90b0bdb;
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    
+}

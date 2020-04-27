@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Payment</ion-title>
+     
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-grid>
+     
+      <ion-card>
+          <p style="font-size: large;font-weight:700">Payment Type</p>
+        <ion-list radio-group>
+          <ion-item>
+            <ion-label>Cash On Delivery</ion-label>
+            <ion-radio value="COD" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>PayPal</ion-label>
+            <ion-radio value="PAYAPAL"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Credit/Debit</ion-label>
+            <ion-radio value="CD" [disabled]="isDisabled"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+     
+          <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+       
+                  <ion-row>
+                          <table style="width:100%;border-collapse: collapse;"  cellpadding="5">
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <div>
+                                                  <p>Price Details</p>
+                                              </div>
+                                          </td>
+              <td>
+          
+              </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              &nbsp;
+                                          </td>
+                                          <td>
+                                              &nbsp;
+                                          </td>
+              
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div>
+                                                  <p>Total MRP</p>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <div style="    text-align: end;">
+                                                  <p> &#8377; 2500</p>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div>
+                                                  <p>Discount</p>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <div style="    text-align: end;">
+                                                  <p>&#8377; 500</p>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div>
+                                                  <p>Tax</p>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <div style="    text-align: end;">
+                                                  <p>&#8377; 300</p>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div>
+                                                  <p>Coupon Discount</p>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <div style="    text-align: end;">
+                                                  <p>- &#8377; 500</p>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <div>
+                                                  <p>Delivery Charges</p>
+                                              </div>
+                                          </td>
+                                          <td>
+                                              <div style="    text-align: end;">
+                                                  <p> &#8377; 100</p>
+                                              </div>
+                                          </td>
+                                      
+                                      </tr>
+                                   
+                                  </tbody>
+                              </table>
+                                <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+                         
+                                
+                                      <table style="width:100%">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                      <div>
+                                                              <p>Total</p>
+                                                          </div>
+                                                </td>
+                                                <td>
+                                                      <div style="    text-align: end;">
+                                                              <p>&#8377; 1900</p>
+                                                          </div>
+                                                  </td>
+                                            </tr>
+                                          
+                                        </tbody>
+                                    </table>
+                                   
+                               
+                                <hr style="    border: 1px solid #0e0e0e;    width: 100%;">
+                                <ion-card>
+                                      <ion-row>
+                                        <ion-col no-padding class="column">
+                                          <button ion-button icon-left small full color="light"  (click)="placeOrder()">
+                                            <ion-icon name="paper-plane"></ion-icon>
+                                        Continue
+                                          </button>
+                                        </ion-col>
+                                      </ion-row>
+                                    </ion-card>
+                  </ion-row>
+        
+  </ion-grid>
+  
+
+
+
+</ion-content>

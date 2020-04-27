@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Change Password</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-card class="full-width" no-margin margin-bottom>
+    <ion-card-content no-padding>
+
+      <ion-item style="background-color: #3bb0ea">
+        <ion-avatar>
+          <img src="assets/img/profile.png" style="    width: 139px;
+              height: 150px;
+              object-fit: cover;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;">
+        </ion-avatar>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list style="padding: 18pt;padding-top: 0pt">
+
+    <ion-item no-padding>
+      <ion-label floating>New Password</ion-label>
+      <ion-input [(ngModel)]="password" required type="password"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding>
+      <ion-label floating>Re-Password</ion-label>
+      <ion-input [(ngModel)]="rePassword" required type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <button style="margin-top: 25pt" ion-button block color="primary" (click)="changePassword()">SUBMIT</button>
+
+</ion-content>

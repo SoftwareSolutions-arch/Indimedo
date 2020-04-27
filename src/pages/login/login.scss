@@ -1,0 +1,54 @@
+page-login {
+    .login-content {
+        width: 100%;
+        position: static;
+        
+        
+  
+        .logo {
+          width: 80px;
+          height: 80px;
+          margin: 20px auto 0;
+          border-radius: 10%;
+          background: url("../assets/img/logo.png") no-repeat;
+          background-size: 100%;
+        }
+        #over input {
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+      }
+        .list-form {
+          overflow-y: hidden;
+          padding: 0;
+          margin-bottom: 0;
+  
+          ion-item {
+            background: none;
+            padding: 0;
+  
+            &:first-child {
+              border-top: none;
+            }
+  
+            &:after {
+              display: none;
+            }
+  
+            ion-label {
+              font-size: 1em;
+              color: color($colors, primary);
+            }
+  
+            ion-input {
+              color: color($colors, primary);
+              $text-input-highlight-color-valid:transparent;
+              $text-input-highlight-color-invalid:transparent;
+            }
+          }
+        }
+      }
+      .active{
+        background-color: #00b6c1;
+      }
+}

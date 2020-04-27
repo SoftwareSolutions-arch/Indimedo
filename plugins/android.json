@@ -1,0 +1,51 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-filepath": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.app.dhss"
+    },
+    "cordova-plugin-advanced-http": {
+      "OKHTTP_VERSION": "3.10.0",
+      "PACKAGE_NAME": "com.app.dhss"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.app.dhss"
+    }
+  }
+}

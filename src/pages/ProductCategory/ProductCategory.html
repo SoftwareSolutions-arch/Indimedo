@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+        <img src="assets/img/logo.png" style="width: 80%;">
+      </ion-title>
+      <ion-buttons end>
+          <button ion-button tappable (click)="gotoCategory()">
+            <ion-icon name="cart"></ion-icon>
+          </button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list >
+    <ion-item *ngFor="let mencategory of menCategoryMenuItems; let i=index" text-wrap (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
+     <ion-row>
+       <ion-col>
+        <h3 style="    width: 90%;">
+          {{mencategory.name}}
+         
+             
+      </h3>
+       </ion-col>
+       <ion-col style="    text-align: end;">
+        <ion-icon color="success"  [name]="isLevel1Shown('idx'+i) ? 'ios-add-circle-outline' : 'ios-add-circle'"></ion-icon>
+  
+       </ion-col>
+     </ion-row>
+      
+      <ion-list *ngIf="isLevel1Shown('idx'+i)" style="    margin: 0px 0px -16px 3px;">
+        <ion-item *ngFor="let submenu of mencategory.children_data; let i2=index" text-wrap (click)="openPage(1)" >
+          <h4>
+            {{submenu.name}}
+           
+          </h4>
+          
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+</ion-content>

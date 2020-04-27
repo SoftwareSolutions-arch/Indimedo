@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      <img src="assets/img/logo.png" style="width: 80%;">
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="gotoCategory()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <p style="font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #00b6c1;
+    padding: 11px;
+    text-align: center;
+    font-size: 16px;">Upload Prescription</p>
+  <hr style="    width: 245px;
+    margin: 8px auto 18px auto;
+    background-color: #00b6c1;
+    height: 2px;
+    border: 0px;" />
+  <p style="font-family: 'Poppins', sans-serif;
+ font-weight: 600;
+ color: #5d5d5d;
+ padding: 11px;
+ text-align: center;
+ font-size: 16px;">Upload photo of your Prescription</p>
+  <div class="upload-btn" primary large style="margin: auto;
+     padding: 10px;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);">
+    <ion-row (click)="aceesGallery()">
+      <ion-col col-12 class="flexcontainer">
+        <button ion-fab>
+          <ion-icon name="browsers" style="display: block"></ion-icon>
+        </button>
+
+      </ion-col>
+      <ion-col col-12>
+        <span style="text-align: center;">Browse Gallery</span>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  <br />
+  <div class="upload-btn" primary large style="margin: auto;
+  padding: 10px;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+transition: all 0.3s cubic-bezier(.25,.8,.25,1);">
+
+    <ion-row (click)="takePicture()">
+      <ion-col col-12 class="flexcontainer">
+        <button ion-fab>
+          <ion-icon name="camera" style="display: block"></ion-icon>
+        </button>
+
+      </ion-col>
+      <ion-col col-12>
+        <span style="text-align: center;">Take Picture</span>
+      </ion-col>
+
+    </ion-row>
+  </div>
+
+  <img [src]="base64Image" *ngIf="base64Image" />
+  <br />
+  <div class="text-right">
+    <input class="btn btn-primary" type="button" value="Proceed" onclick="submitform()">
+  </div>
+
+  <!-- <div class="modal cartmessagemodal fade show" id="exampleModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" style="display: block;" aria-modal="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div class="modal-content text-center">
+        <div class="bdr">
+          <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLongTitle">Please Upload Prescription</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="col-md-4 pt-4 pt-md-1 col-12">
+    <div class="card presc-guide p-4">
+      <h5>Valid Prescription Guide</h5>
+      <hr>
+      <ul class="guide-list">
+        <li> Don’t crop out any part of the image</li>
+        <li> Avoid blurred image</li>
+        <li> Include details of doctor and patient + clinic visit date</li>
+        <li> Medicines will be dispensed as per prescription</li>
+        <li> Supported files type: jpeg , jpg , png , pdf</li>
+        <li> Maximum allowed file size: 5MB</li>
+      </ul>
+
+      <img src="https://indimedo.com/public/assets/img/sample.png" class="img-fluid mt-4" alt="Prescription Sample"
+        height="100%" width="100%">
+    </div>
+  </div>
+
+</ion-content>

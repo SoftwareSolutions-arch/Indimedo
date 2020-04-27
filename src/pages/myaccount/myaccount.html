@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only (click)="back()" style="background-color: #00b6c1;">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-card class="full-width" no-margin margin-bottom>
+    <ion-card-content no-padding>
+
+      <ion-item style="background-color: #3bb0ea">
+        <ion-avatar>
+          <img src="assets/img/profile.png" style="    width: 139px;
+              height: 150px;
+              object-fit: cover;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;">
+        </ion-avatar>
+        <br>
+        <p style="    text-align: center;
+            color: white;
+            font-size: larger;">{{this.fname}}</p>
+        <br>
+        <p style="    text-align: center;
+            color: white;
+            font-size: medium;">{{this.mobile}}</p>
+        <button class="button button-icon icon ion-navicon-round" style="margin: -25px 0 0 0px;
+            float: right;" (click)="addaddress()">
+          <ion-icon name="open"></ion-icon>
+        </button>
+
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card no-margin margin-bottom class="full-width">
+    <ion-card-content no-padding>
+      <ion-item tappable (click)="goToOrder()" class="border-bottom">
+        <ion-icon name="reorder" color="primary" item-left></ion-icon>
+        <span>{{ reorder.name }}</span>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card no-margin margin-bottom class="full-width">
+    <ion-card-content no-padding>
+      <ion-item tappable (click)="goToAddress()" class="border-bottom">
+        <ion-icon name="locate" color="primary" item-left></ion-icon>
+        <span>{{ locate.name }}</span>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card no-margin margin-bottom class="full-width">
+    <ion-card-content no-padding>
+      <ion-item tappable (click)="goToAccount()" class="border-bottom">
+        <ion-icon name="cog" color="primary" item-left></ion-icon>
+        <span>{{ cog.name }}</span>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card no-margin margin-bottom class="full-width">
+    <ion-card-content no-padding>
+      <ion-item tappable (click)="goToChangePassword()" class="border-bottom">
+        <ion-icon name="md-lock" color="primary" item-left></ion-icon>
+        <span>{{ changePassword.name }}</span>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-row>
+      <ion-col no-padding class="column">
+        <button ion-button icon-left small full color="light" menuClose (click)="logout()">
+          <ion-icon name="log-out"></ion-icon>
+          Log Out
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

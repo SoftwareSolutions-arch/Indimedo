@@ -1,0 +1,231 @@
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/img/logo.png" style="width: 80%;">
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: #f6f6f6;">
+  <section class="greybg myaccount pt-3 pt-md-4 pb-3 pb-md-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="https://indimedo.com/account">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Account</li>
+            </ol>
+          </nav>
+          <h1 class="main-head">My Account </h1>
+        </div>
+      </div>
+
+      <div class="row pt-2 pt-md-0">
+        <aside class="col-sm-6 col-md-4 col-lg-3">
+          <div class="profile-sidebar h-100">
+            <h6 class="mb-2">Profile</h6>
+            <hr>
+            <div class="profile-usermenu">
+              <ul class="nav">
+                <li class="active">
+                  <a (click)="myaccount()">
+                    <i class="fas fa-user-alt"></i> My Account
+                  </a>
+                </li>
+                <li>
+                  <a (click)="editaddress()">
+                    <i class="fas fa-location-arrow"></i> Manage Address </a>
+                </li>
+                <li>
+                  <a (click)="editprofile()"> <i class="fas fa-pencil-alt"></i> Edit Profile </a>
+                </li>
+                <li>
+                  <a (click)="changepassword()"><i class="fas fa-key"></i> Change Password </a>
+                </li>
+              </ul>
+            </div>
+            <h6 class="mb-2 mt-4">Orders</h6>
+            <hr>
+            <div class="profile-usermenu">
+              <ul class="nav">
+                <li>
+                  <a href="https://indimedo.com/viewAllOrder">
+                    <i class="fas fa-box-open"></i> My Orders </a>
+                </li>
+                <li>
+                  <a href="https://indimedo.com/userlogout"> <i class="fas fa-lock"></i> Logout </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <div *ngIf="userlogin">
+          <div class="col-sm-6 col-md-8 col-lg-9 checkout-form pt-3 pt-md-0">
+            <h6>Manage User Login</h6>
+            <p>Edit your User Details.</p>
+            <form action="https://indimedo.com/updateProfile" method="post" enctype="multipart/form-data">
+              <input type="hidden" name="_token" value="tgpHSBCZSkvGGspTkN6xd8nRb5a63zJRq9FuzHZf">
+              <input type="hidden" name="_method" value="PUT">
+              <div>
+                <div class="profile-content p-4">
+                  <div class="row">
+
+                    <div class="col-md-6 mb-2">
+                      <input type="hidden" class="form-control" id="userid" name="userid" value="96">
+                      <label for="firstName">First name<span class="text-danger">*</span></label>
+                      <input [(ngModel)]="billingUserData.bfirstName" type="text" class="form-control" name="firstName"
+                        id="firstName" placeholder="First Name" value="mcaumang">
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="lastName">Last name<span class="text-danger">*</span></label>
+                      <input [(ngModel)]="billingUserData.blastName" type="text" class="form-control" id="lastName"
+                        name="lastName" placeholder="Last Name" value="">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-2">
+                      <label for="email">Email<span class="text-danger">*</span></label>
+                      <input [(ngModel)]="billingUserData.bemail" type="email" class="form-control" id="email"
+                        name="email" placeholder="Email Address" value="">
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="Phone">Phone<span class="text-danger">*</span></label>
+                      <input [(ngModel)]="billingUserData.bphone" type="text" class="form-control" name="phone"
+                        id="phone" placeholder="Phone No" value="9926700342">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-2">
+                      <label for="Password">Password</label>
+                      <input [(ngModel)]="billingUserData.password" type="password" class="form-control" id="pass"
+                        name="pass" placeholder="Password">
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="password">Re-password</label>
+                      <input [(ngModel)]="billingUserData.repassword" type="password" class="form-control" name="repass"
+                        id="repass" placeholder="Re-enter password">
+                    </div>
+                  </div>
+                  <div class="sbmt-btn mt-40">
+                    <button (click)="editprofile()">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div *ngIf="userpassword">
+          <div class="col-md-9 checkout-form pt-3 pt-md-0">
+            <h6>Manage User Login</h6>
+            <p>Edit your User Password.</p>
+            <form action="https://indimedo.com/updatePassword" method="post" enctype="multipart/form-data">
+              <input type="hidden" name="_token" value="tgpHSBCZSkvGGspTkN6xd8nRb5a63zJRq9FuzHZf">
+              <input type="hidden" name="_method" value="PUT">
+              <div>
+                <div class="profile-content p-4">
+
+                  <div class="row">
+                    <div class="col-md-6 mb-2">
+                      <label for="firstName">New Password</label>
+                      <input type="hidden" class="form-control" id="userid" name="userid" value="96">
+                      <input type="password" class="form-control" id="pass" name="pass" placeholder="New Password"
+                        required="">
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="lastName">Re-password</label>
+                      <input type="password" class="form-control" name="repass" id="repass"
+                        placeholder="Re-enter password" required="">
+
+                    </div>
+                  </div>
+                  <div class="sbmt-btn mt-40">
+                    <button>Reset Password</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+
+        <div *ngIf="useraddress">
+          <div class="col-md-9 checkout-form mt-3 mt-md-0">
+            <h6>Welcome, mcaumang </h6>
+            <p>Find below your Order Addresses Info.</p>
+            <div class="row">
+
+              <div class="col-md-6 mb-2 mb-md-4">
+                <div class="profile-content h-100">
+                  <h3> Billing Address
+                    <a class="edit-info" href="https://indimedo.com/getBilling"><i class="fas fa-pencil-alt"></i>
+                      Edit</a>
+                  </h3>
+                  <ul>
+                    <li><span>Address1 :</span> D vyas colony</li>
+                    <li><span>Address2 :</span> </li>
+                    <li><span>Country :</span> Egypt</li>
+                    <li><span>State :</span> Asyut</li>
+                    <li><span>City :</span> Abu Tij</li>
+                    <li><span>Zip :</span> 492001</li>
+                  </ul>
+
+                </div>
+
+              </div>
+
+
+              <div class="col-md-6 mb-2 mb-md-4">
+                <div class="profile-content h-100">
+                  <h3>Delivery Address <a class="edit-info" href="https://indimedo.com/getShipping"><i
+                        class="fas fa-pencil-alt"></i> Edit</a></h3>
+                  <ul>
+                    <li><span>Email :</span> gmail@gmail.com</li>
+                    <li><span>Phone :</span> 9926700342</li>
+                    <li><span>Address1 :</span> D vyas colony</li>
+                    <li><span>Address2 :</span> </li>
+                    <li><span>Country :</span> Egypt</li>
+                    <li><span>State :</span> Asyut</li>
+                    <li><span>City :</span> Abu Tij</li>
+                    <li><span>Zip :</span> 492001</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="userdetails">
+        <div class="col-md-6 mb-2 mb-md-4">
+          <div class="profile-content h-100">
+            <h3>Login Information <a class="edit-info" href="https://indimedo.com/manageaccount"><i class="fas fa-pencil-alt"></i> Edit</a></h3>
+          <ul>
+            <li><span>First Name :</span> mcaumang</li>
+            <li><span>Last Name :</span> </li>
+            <li><span>Email :</span> </li>
+            <li><span>Password :</span> ********</li>
+            <li><span>Mobile No :</span> 9926700342</li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</ion-content>

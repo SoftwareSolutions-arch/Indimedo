@@ -1,0 +1,172 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title></ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-item style="height:53%">
+    <img src="{{productimage}}" style="margin: auto;width: 100%;" imageViewer>
+</ion-item>
+  <br/>
+    <ion-slides autoplay="1000" slidesPerView="3" spaceBetween="10px"  *ngIf="productDetailImage && productDetailImage.length" style="height: 27%;">
+            <ion-slide *ngFor="let slide of productDetailImage" style="height: 113px;
+            border: 1px solid darkgray;
+            width: 100.667px;
+            margin-right: 10px;" >
+              <h1><img src="{{slide.image}}" style="margin: auto;height: 129px;" (click)="changeView(slide.image)"></h1>
+            </ion-slide>
+          </ion-slides>
+          <br/>
+         
+            <div>
+                                    
+                <table>
+                  <tbody>
+                    <tr>
+                      <td colspan="2">
+                        <p style="color: black;
+                        margin-top: -34px;
+                        font-size: 17px;">
+                          <strong>
+                              
+                              {{productname}}
+                          </strong>  
+                  </p>
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                          <p style="color:darkgray;margin-top: -9px;">{{productdetails}}</p>
+                      </td>
+                     
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <p style="color: black;
+                        margin-top: -1px;
+    font-size: large;">
+                            <strong>
+                                &#8377; {{productdiscounted_price}}
+                            </strong>
+                                
+                                
+                             
+                    </p>
+                    </td>
+                  
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="color: #696666;
+                            margin-top: -12px;
+                            text-decoration: line-through;">
+                                
+                                    
+                                    &#8377;{{productprice}}
+                                 
+                        </p>
+                        </td>
+                        <td>
+                          <p style="color: #549844;
+                          margin-top: -12px;
+                          font-size: large;    margin-left: 23px;">
+                              <strong>
+                                  
+                                  Get {{productdiscount}}{{productdiscount_type}} off
+                              </strong>  
+                      </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p style="color:green;margin-top: -9px;">
+                          <strong>
+                              
+                           In Stock
+                          </strong>  
+                  </p>
+                      </td>
+                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                      <td>
+                       
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+            <hr style="border: 0.5px solid darkgray;"/>
+            <ion-grid style="height: 74px;">
+                <h4 style="    margin-top: -0.4rem;"><strong style="font-size: medium;
+                  color: black;">Color</strong></h4>
+                   <ion-row style="    margin-top: -6px;">
+                     <ion-col col-2 *ngFor="let color of variations" style="padding: 0px;">
+
+                      
+                          <ion-item style="color: black;
+                          border-radius: 13%;
+                          width: 32px;
+                          height: 1px;
+                          border: 0.5px solid black;" (click)="showhideColor(color.variation_id)"   id="{{color.variation_id }}"  [ngStyle]="{'background-color': color.variation_value}" >
+                          
+                          </ion-item> 
+                     </ion-col>
+                   </ion-row>
+                            
+                         
+            </ion-grid>
+            <hr style="border: 0.5px solid darkgray;"/>
+            <ion-grid style="height: 81px;">
+                <h4 style="    margin-top: -0.4rem;"><strong style="font-size: medium;
+                  color: black;" >Size</strong></h4>
+                   <ion-row style="    margin-top: -4px;">
+                     <ion-col col-2 *ngFor="let color of size;let i= index" style="padding: 0px;">
+                      <div id="container">
+                        <ion-item style="    background-color: white;
+                        color: black;
+                        border-radius: 50%;
+                        width: 51px;
+                        height: 50px;
+                        border: 0.5px solid black;" (click)="showhide(color.variation_id)"   id="{{color.variation_id }}"  >
+                            <span>{{color.variation_value}}</span>    
+                          </ion-item> 
+                      </div>  
+                     </ion-col>
+                   </ion-row>
+                     
+                  
+                         
+            </ion-grid>
+            <hr style="border: 0.5px solid darkgray;"/>
+            
+            <ion-grid >
+                <h4 style="    margin-top: -0.4rem;"><strong style="font-size: medium;
+                  color: black;" >Product Details</strong></h4>
+                  <span>{{productdescription}}</span> 
+                       <br/>
+                       <ion-row>
+                          <!-- <ion-col col-6> 
+                              <button ion-button  block (click)="openSort()">
+                                  <ion-icon name="heart"></ion-icon>&nbsp;&nbsp;
+                                  Wishlist
+                                </button>
+                          </ion-col> -->
+                        
+                          <ion-col col-12>
+                              <button ion-button  block (click)="openCart()">
+                                  <ion-icon name="cart"></ion-icon>&nbsp;&nbsp;
+                                  Add To Cart
+                                </button>
+                          </ion-col>
+
+                         
+                       </ion-row>     
+                         
+            </ion-grid>
+</ion-content>

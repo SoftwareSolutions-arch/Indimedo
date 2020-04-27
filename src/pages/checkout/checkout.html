@@ -1,0 +1,267 @@
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img src="assets/img/logo.png" style="width: 80%;">
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content style="background-color: #f6f6f6;">
+  <main class="col-sm-7 checkout-form">
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="bg-secondary custo-btn text-center  p-3 mb-2 mb-md-0">
+          <span style="color: black;">Returning customer? </span>
+          <a href="https://indimedo.com/login">Click here to login</a>
+        </div>
+      </div>
+      <div class="col-md-6 bg-secondary custo-btn text-center  p-3">
+        <span style="color: black;">New User?</span>
+        <a href="https://indimedo.com/register">Click here to register</a>
+      </div>
+    </div>
+    <h5>BILLING DETAILS</h5>
+    <hr class="red">
+
+    <div class="row">
+      <div class="col-md-6 mb-2">
+
+        <label for="firstName">First Name<span class="text-danger">*</span></label>
+        <input [(ngModel)]="billingUserData.bfirstName" type="text" class="form-control" id="bfirstName" name="billing_name" placeholder="First Name" value=""
+          required="">
+
+      </div>
+      <div class="col-md-6 mb-2 mb-md-3">
+        <label for="lastName">Last Name<span class="text-danger">*</span></label>
+        <input [(ngModel)]="billingUserData.blastName" type="text" class="form-control" id="lastName" name="blastName" placeholder="Last Name" value=""
+          required="">
+
+      </div>
+    </div>
+
+    <div class="mb-2 mb-md-3">
+      <label for="company">Company <span class="text-muted">(Optional)</span></label>
+      <input [(ngModel)]="billingUserData.bcompany" type="company" class="form-control" id="company" name="bcompany" placeholder="Company Name">
+
+    </div>
+
+    <div class="mb-2 mb-md-3">
+      <label for="email">Email<span class="text-danger">*</span></label>
+      <input [(ngModel)]="billingUserData.bemail" type="email" class="form-control" id="email" name="billing_email" placeholder="Your Email">
+    </div>
+
+    <div class="mb-2 mb-md-3">
+      <label for="phone">Phone<span class="text-danger">*</span></label>
+      <input [(ngModel)]="billingUserData.bphone" type="text" class="form-control" name="billing_tel" id="phone" placeholder="Your Phone" required="">
+    </div>
+    <div class="mb-2 mb-md-3">
+      <label for="address">Address<span class="text-danger">*</span></label>
+      <input [(ngModel)]="billingUserData.baddress1" type="text" class="form-control" name="billing_address" id="aaddress" placeholder="Address" required="">
+    </div>
+    <div class="mb-2 mb-md-3">
+      <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+      <input [(ngModel)]="billingUserData.baddress2" type="text" class="form-control" name="baddress2" id="address2" placeholder="Landmark">
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-2 mb-md-3">
+        <label for="country">Country</label>
+        <input type="hidden" name="billing_country" id="billing_country" value="">
+        <select (change)="selectCountry('country')" class="custom-select d-block w-100" id="country" name="bcountry" required="">
+          <option *ngFor="let allItems of this.getcountryItems">
+            {{allItems.name}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-2 mb-md-3">
+        <label for="state">State</label>
+        <input type="hidden" name="billing_state" id="billing_state" value="">
+        <select (change)="selectState('state')" class="custom-select d-block w-100" id="state" name="bstate" required="">
+          <option *ngFor="let state of this.stateList">{{state.name}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-2 mb-md-3">
+        <label for="state">City</label>
+        <input type="hidden" name="billing_city" id="billing_city" value="">
+        <select (change)="selectCity('city')" class="custom-select d-block w-100" id="city" name="bcity" required="">
+          <option *ngFor="let city of this.cityList">{{city.name}}</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-2 mb-md-3">
+        <label for="zip">Zip</label>
+        <input [(ngModel)]="billingUserData.bzip" type="text" class="form-control" id="bzip" name="billing_zip" placeholder="Zip" required="">
+      </div>
+      <div class="col-md-6 mb-2 mb-md-3">
+
+      </div>
+      <div class="col-md-6 mb-2 mb-md-3 alert-danger danger1">
+
+      </div>
+      <input type="hidden" class="form-control" id="clocation" name="blocation" placeholder="Location"
+        value="22.9734229,78.6568942">
+
+    </div>
+    <div class="custom-control custom-checkbox">
+      <input value="same" type="checkbox" class="custom-control-input showhide" id="same-address" name="same_address"
+        (click)="checkbox($event)">
+      <label class="custom-control-label" for="same-address">SHIP TO A DIFFERENT ADDRESS?</label>
+    </div>
+    <div *ngIf="differentaddress">
+      <div class="box  mybox">
+        <hr class="d-block clearfix">
+        <h5>SHIPPING DETAILS</h5>
+        <hr class="red">
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <label for="firstName">First name<span class="text-danger">*</span></label>
+            <input [(ngModel)]="shippingUserData.sFirstName" type="text" class="form-control" id="firstName" name="sfirstName" placeholder="First Name" value="">
+
+          </div>
+          <div class="col-md-6 mb-2 mb-md-3">
+            <label for="lastName">Last name<span class="text-danger">*</span></label>
+            <input [(ngModel)]="shippingUserData.sLastName" type="text" class="form-control" id="slastName" name="slastName" placeholder="Last Name" value="">
+
+          </div>
+        </div>
+
+        <div class="mb-2 mb-md-3">
+          <label for="company">Company <span class="text-muted">(Optional)</span></label>
+          <input [(ngModel)]="shippingUserData.sCompany" type="company" class="form-control" name="scompany" id="company" placeholder="Company Name">
+
+        </div>
+
+        <div class="mb-2 mb-md-3">
+          <label for="email">Email<span class="text-danger">*</span></label>
+          <input [(ngModel)]="shippingUserData.sEmail" type="email" class="form-control" name="semail" id="email" placeholder="Your Email">
+        </div>
+
+        <div class="mb-2 mb-md-3">
+          <label for="phone">Phone<span class="text-danger">*</span></label>
+          <input [(ngModel)]="shippingUserData.sPhone" type="text" class="form-control" id="phone" name="sphone" placeholder="Your Phone">
+        </div>
+        <div class="mb-2 mb-md-3">
+          <label for="address">Address<span class="text-danger">*</span></label>
+          <input [(ngModel)]="shippingUserData.sAddress1" type="text" class="form-control" name="saddress1" id="baddress" placeholder="Address">
+
+        </div>
+        <div class="mb-2 mb-md-3">
+          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input [(ngModel)]="shippingUserData.sAddress2" type="text" class="form-control" name="saddress2" id="address2" placeholder="Landmark">
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-2 mb-md-3">
+            <label for="country1">Country</label>
+            <input type="hidden" name="billing_country" id="billing_country" value="">
+            <select (change)="selectCountry('country1')" class="custom-select d-block w-100" id="country1" name="bcountry" required="">
+              <option *ngFor="let allItems of this.getcountryItems">{{allItems.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-2 mb-md-3">
+            <label for="state">State</label>
+            <select (change)="selectState('state1')" class="custom-select d-block w-100" id="state1" name="sstate1">
+              <option *ngFor="let state of this.stateList">{{state.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-2 mb-md-3">
+            <label for="city1">City</label>
+            <select (change)="selectCity('city1')" class="custom-select d-block w-100" id="city1" name="scity1">
+              <option *ngFor="let city of this.cityList">{{city.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-2 mb-md-3">
+            <label for="zip">Zip</label>
+            <input [(ngModel)]="shippingUserData.sZip" type="text" class="form-control" id="szip" name="szip" placeholder="Zip">
+          </div>
+          <div class="col-md-6 mb-2 mb-md-3">
+
+          </div>
+          <div class="col-md-6 mb-2 mb-md-3 alert-danger danger2">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="col-sm-5">
+    <div class="your-order-area">
+      <h3>Your order</h3>
+      <div class="your-order-wrap gray-bg-4">
+        <div class="your-order-info-wrap">
+          <div class="your-order-info">
+            <ul>
+              <li>Product <span>Total</span></li>
+            </ul>
+          </div>
+          <div class="your-order-middle" *ngFor="let allItems of this.getallcartItems">
+            <ul>
+              <li>{{allItems.name}}<span>{{allItems.discounted_price}} </span></li>
+            </ul>
+          </div>
+          <div class="your-order-info order-subtotal">
+            <ul>
+              <li>Subtotal <span>₹{{this.cartamount}} </span></li>
+            </ul>
+          </div>
+          <div class="your-order-info order-shipping">
+            <ul>
+              <li>Shipping <span>₹0 </span></li>
+
+            </ul>
+          </div>
+          <div class="your-order-info order-total">
+            <ul>
+              <li>Coupon Discount <span>₹ 0 </span></li>
+              <input type="hidden" name="discounttxt" value="0">
+              <input type="hidden" name="codetxt" value="null">
+            </ul>
+          </div>
+          <div class="your-order-info order-total">
+            <ul>
+              <li>Total <span>₹{{this.cartamount}} </span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="payment-method">
+
+
+          <div class="pay-top sin-payment">
+            <input (click)="cashondelivery($event)" id="payment-method-3" class="input-radio" type="radio" value="cod" name="payment_method" required="">
+            <label for="payment-method-3"> Cash on delivery </label>
+
+          </div>
+          <div class="pay-top sin-payment sin-payment-3">
+            <input id="payment-method-4" class="input-radio" type="radio" value="Paytm" name="payment_method"
+              required="">
+            <label for="payment-method-4">Paytm <img alt=""
+                src="https://indimedo.com/public/assets/img/payment.png"></label>
+          </div>
+          <div class="pay-top sin-payment sin-payment-3">
+            <input id="payment-method-5" class="input-radio" type="radio" value="CCAvenue" name="payment_method"
+              required="">
+            <label for="payment-method-5">CCAvenue <img alt=""
+                src="https://indimedo.com/public/assets/img/payment.png"></label>
+          </div>
+          <div class="custom-control custom-checkbox mb-1">
+            <input type="checkbox" class="custom-control-input" id="createaccount" name="createaccount"
+              value="createaccount">
+            <label class="custom-control-label" for="createaccount">Create account?</label>
+          </div>
+          <div class="Place-order mt-40">
+            <input type="hidden" name="userid" value="0">
+            <button (click)="placeOrder()" class="placebutton">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</ion-content>
